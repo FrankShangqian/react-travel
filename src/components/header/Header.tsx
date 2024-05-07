@@ -3,8 +3,12 @@ import logo from '../../assets/logo.svg';
 import Styles from './Header.module.css';
 import {Layout, Typography,Input,Menu,Button,Dropdown} from 'antd';
 import {GlobalOutlined} from "@ant-design/icons";
+import { useParams,useLocation,useNavigate } from "react-router-dom";
 
 export const Header: React.FC=()=>{
+  const navigate=useNavigate();
+  const location =useLocation();
+  const params=useParams();
     return (
       <div className={Styles.App}>
         <div className={Styles['app-header']}>
@@ -27,14 +31,16 @@ export const Header: React.FC=()=>{
               language
               </Dropdown.Button>
               <Button.Group className={Styles['button-group']}>
-                <Button>signup</Button>
-                <Button>login</Button>
+                <Button onClick={()=>navigate("/register")}>signup</Button>
+                <Button onClick={()=>navigate("/signin")}>login</Button>
               </Button.Group>
             </div>
           </div>
           <Layout.Header className={Styles['main-header']}>
-            <img src={logo} alt="logo" className={Styles['App-logo']}/>
-            <Typography.Title level={3} className={Styles.title}>tourism website</Typography.Title>
+            <span onClick={()=>navigate("/")}>
+               <img src={logo} alt="logo" className={Styles['App-logo']}/>
+               <Typography.Title level={3} className={Styles.title}>tourism website</Typography.Title>
+            </span>
             <Input.Search
               placeholder={'Please enter your travel destination'}
               className={Styles["search-input"]}
