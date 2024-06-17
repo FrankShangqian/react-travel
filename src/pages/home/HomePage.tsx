@@ -6,10 +6,12 @@ import { productList1, productList2, productList3 } from "./mockups";
 import sideImage from "../../assets/images/sider_2019_12-09.png";
 import sideImage2 from "../../assets/images/sider_2019_02-04.png";
 import sideImage3 from "../../assets/images/sider_2019_02-04-2.png";
+import { withRouter,RouteComponentProps } from "../../helpers/withRouter";
 
-
-export class HomePage extends React.Component{
+//class HomePageComponent extends React.Component<RouteComponentProps>{
+    class HomePageComponent extends React.Component{
     render(): React.ReactNode {
+        //console.log(this.props.navigate);
         return<>
             <Header/>
             {/* content */}
@@ -43,3 +45,5 @@ export class HomePage extends React.Component{
         </>
     }
 }
+
+export const HomePage=withRouter(HomePageComponent)
