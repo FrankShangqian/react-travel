@@ -10,6 +10,10 @@ const defaultState: languageState={
     ],
 };
 export default (state = defaultState, action) => {
-    
+    console.log(state,action);
+    if(action.type==="change_language"){//state是不可更改的
+        const newState = {...state, language: action.payload};
+        return newState;
+    }
     return state;
 }
