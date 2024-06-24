@@ -10,10 +10,22 @@ const defaultState: languageState={
     ],
 };
 export default (state = defaultState, action) => {
-    console.log(state,action);
-    if(action.type==="change_language"){//state是不可更改的
-        const newState = {...state, language: action.payload};
-        return newState;
+    switch(action.type){
+        case "change_language":
+            return {...state, language: action.payload}
+        case "add_language":
+            return {...state,languageList:[...state.languageList,action.payload]}
+        default:
+            return state
     }
-    return state;
-}
+    // console.log(state,action);
+    // if(action.type==="change_language"){//state是不可更改的
+    //     const newState = {...state, language: action.payload};
+    //     return newState;
+    // }
+    // if(action.type==="add_language"){
+    //     const newState={...state,languageList:[...state.languageList,action.payload]};
+    //     return newState;
+    // }
+    // return state;
+};
