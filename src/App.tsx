@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './App.module.css';
 import { BrowserRouter, Routes,Route } from 'react-router-dom';
-import { HomePage,SignInPage,Register,Detail } from './pages';
+import {HomePage,SignInPage,Register,Detail} from './pages'
 
 function App() {
   return (
